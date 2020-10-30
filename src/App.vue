@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link :to="{name : 'Admin'}">Admin</router-link>
     </div>
     <router-view />
   </div>
@@ -15,8 +15,8 @@ export default {
     firebase
       .auth()
       .signInWithEmailAndPassword(
-        "maria.agustina.valenti89@gmail.com",
-        "123456"
+        "admin@admin.com",
+        "000000"
       )
       .then((user) => console.log(user))
       .catch(function (error) {
