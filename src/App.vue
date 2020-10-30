@@ -4,9 +4,29 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+
+<script>
+import firebase from "firebase";
+export default {
+  mounted() {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(
+        "maria.agustina.valenti89@gmail.com",
+        "123456"
+      )
+      .then((user) => console.log(user))
+      .catch(function (error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
